@@ -80,10 +80,10 @@ nav img {
 
 @keyframes bgIn {
   from {
-    transform: translate(400%, -700%) scale(3);
+    transform: translate(100%, -230%);
   }
   to {
-    transform: translate(8%, 38%) scale(3);
+    transform: translate(-33%, -20%);
   }
 }
 
@@ -92,7 +92,7 @@ nav img {
   /* width: calc(1308px + 410vw + 100vh); */
   /* transform: translate(-21%, 7%) scale(2); */
   /* transform: translate(23%, 132%) scale(6.5); */
-  transform: translate(8%, 38%) scale(3);
+  transform: translate(-33%, -20%);
 
   animation: bgIn 1.5s cubic-bezier(0, 0, 0, 1);
 }
