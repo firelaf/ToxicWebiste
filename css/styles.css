@@ -1,8 +1,6 @@
 /* MOBILE AND GLOBAL STYLES */
 
-/* applies to screens smaller than 500px (first breakpoint) */
-/* and above unless overwritten below */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@10&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 
 html,
 body,
@@ -12,9 +10,9 @@ h1 {
   font-weight: 100;
 }
 
-html {
+/* html {
   overflow: hidden;
-}
+} */
 
 body {
   background: #000;
@@ -25,6 +23,35 @@ body {
 a {
   color: #fff;
 }
+
+/* ############### NAV MENU ############################## */
+
+nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  top: 0;
+  right: 0;
+  z-index: 999;
+
+  opacity: 1;
+  transition: opacity 2.5s;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+nav img {
+  width: calc(25px + 1.5vw);
+  padding: 1.3em;
+}
+
+/* ########## PARRALAX SCROLLING EFFECT ############### */
 
 .parallax {
   perspective: 1px;
@@ -47,12 +74,24 @@ a {
   transform: translateZ(-5px);
 }
 
+@keyframes bgIn {
+  from {
+    transform: translate(50%, -21%);
+  }
+  to {
+    transform: translate(-34%, -21%);
+  }
+}
+
 #toxic-logo {
-  opacity: 50%;
   position: absolute;
   width: calc(1308px + 410vw + 100vh);
-  transform: translate(-30%, -30%);
+  transform: translate(-34%, -21%);
+
+  animation: bgIn 2s ease-out;
 }
+
+/* ##################### MAIN CONTENT ####################### */
 
 section {
   display: flex;
@@ -62,18 +101,45 @@ section {
   padding: 0;
 }
 
-#first-view h1 {
-  padding: 22vh 0vh 72vh 0vh;
-}
-
 section h1 {
   font-size: calc(30px + 1.5vw);
+  text-shadow: 0px 0px 4px #fff, 0px 0px 16px #fff;
   text-align: center;
 }
 
 section img {
-  width: 68%;
+  width: 87%;
   padding: 0.5em 0;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding-bottom: 12em;
+}
+
+.main-title {
+  padding: 26vh 0vh 72vh 0vh;
+
+  opacity: 1;
+  transition: opacity 2.5s;
+}
+
+.sub-title {
+  opacity: 1;
+  transition: opacity 1s;
+  padding-bottom: 6em;
+}
+
+.img-in-block {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.fade-in {
+  opacity: 0;
 }
 
 /* TABLET STYLES */
