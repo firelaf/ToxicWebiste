@@ -80,19 +80,19 @@ nav img {
 
 @keyframes bgIn {
   from {
-    transform: translate(100%, -21%);
+    transform: translate(215%, -325%) scale(2);
   }
   to {
-    transform: translate(-34%, -21%);
+    transform: translate(-21%, 7%) scale(2);
   }
 }
 
 #toxic-logo {
   position: absolute;
-  width: calc(1308px + 410vw + 100vh);
-  transform: translate(-34%, -21%);
+  /* width: calc(1308px + 410vw + 100vh); */
+  transform: translate(-21%, 7%) scale(2);
 
-  animation: bgIn 1s cubic-bezier(0, 0, 0, 1);
+  animation: bgIn 1.5s cubic-bezier(0, 0, 0, 1);
 }
 
 /* ##################### MAIN CONTENT ####################### */
@@ -103,6 +103,9 @@ section {
   flex-direction: column;
   width: 100vw;
   padding: 0;
+}
+
+#first-view {
   margin-bottom: 20vh;
 }
 
