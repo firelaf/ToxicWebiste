@@ -1,15 +1,15 @@
-// GLOBAL VARIABLES
+// SCROLL EFFECTS
 const subTitles = document.querySelectorAll(".sub-title");
 const scrollArea = document.querySelector(".parallax");
 const pictureBlocks = document.querySelectorAll("figure");
 const backgroundImg = document.querySelector("#toxic-logo");
+const downArrow = document.querySelector(".down-arrow");
 
-// SCROLL EFFECTS
 scrollArea.addEventListener("scroll", scrollEffects);
 
 function scrollEffects() {
   //This block of code calculates the scrolled position of the screen
-  //in percentage value
+  //as a percentage
   let scrollHeight = scrollArea.scrollHeight - window.innerHeight;
   let currentScroll = scrollArea.scrollTop;
 
@@ -19,6 +19,8 @@ function scrollEffects() {
 
   //Call all effects that depend on scrolling
   backgroundOpacity(scrollPercentFixed);
+
+  fadeOut(currentScroll, downArrow);
 
   subTitles.forEach((item) => {
     titleFadeIn(currentScroll, item);
@@ -32,7 +34,7 @@ function scrollEffects() {
 //This changes the opacity of the "X" background
 //based on the scroll
 function backgroundOpacity(scrollPercent) {
-  let opacity = 100 - 5 * scrollPercent;
+  let opacity = 100 - 7 * scrollPercent;
   opacity = opacity.toFixed(2);
 
   //The opacity change stops at 30%
@@ -40,6 +42,17 @@ function backgroundOpacity(scrollPercent) {
     backgroundImg.style.opacity = `${opacity}%`;
   } else {
     backgroundImg.style.opacity = "30%";
+  }
+}
+
+function fadeOut(currentScroll, element) {
+  if (currentScroll >= element.offsetTop - window.innerHeight / 1.5) {
+    setTimeout(() => {
+      element.classList.add("fade-in");
+    }, 10);
+    setTimeout(() => {
+      element.style.animation = "none";
+    }, 4000);
   }
 }
 
@@ -81,16 +94,19 @@ function pictureFadeIn(currentScroll, wrapper) {
   }
 }
 
-//TRANSITIONS
+//INITIAL FADE-IN'S
 
 const mainTitle = document.querySelector(".main-title");
 const navMenu = document.querySelector("nav");
 
-initFadeIn(mainTitle);
-initFadeIn(navMenu);
+initFadeIn(mainTitle, 100);
+initFadeIn(navMenu, 100);
+initFadeIn(downArrow, 4000);
 
-function initFadeIn(element) {
+function initFadeIn(element, delay) {
   setTimeout(() => {
     element.classList.remove("fade-in");
-  }, 100);
+  }, delay);
 }
+
+//FADE OUT

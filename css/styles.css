@@ -24,6 +24,10 @@ a {
   color: #fff;
 }
 
+p {
+  margin: 0;
+}
+
 /* ############### NAV MENU ############################## */
 
 nav {
@@ -76,7 +80,7 @@ nav img {
 
 @keyframes bgIn {
   from {
-    transform: translate(50%, -21%);
+    transform: translate(100%, -21%);
   }
   to {
     transform: translate(-34%, -21%);
@@ -88,7 +92,7 @@ nav img {
   width: calc(1308px + 410vw + 100vh);
   transform: translate(-34%, -21%);
 
-  animation: bgIn 2s ease-out;
+  animation: bgIn 1s cubic-bezier(0, 0, 0, 1);
 }
 
 /* ##################### MAIN CONTENT ####################### */
@@ -99,6 +103,14 @@ section {
   flex-direction: column;
   width: 100vw;
   padding: 0;
+  margin-bottom: 20vh;
+}
+
+.main-title {
+  padding: 26vh 0vh 55vh 0vh;
+
+  opacity: 1;
+  transition: opacity 2.5s;
 }
 
 section h1 {
@@ -120,13 +132,6 @@ figure {
   padding-bottom: 12em;
 }
 
-.main-title {
-  padding: 26vh 0vh 72vh 0vh;
-
-  opacity: 1;
-  transition: opacity 2.5s;
-}
-
 .sub-title {
   opacity: 1;
   transition: opacity 1s;
@@ -136,6 +141,50 @@ figure {
 .img-in-block {
   opacity: 1;
   transition: opacity 1s;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: 1em;
+}
+
+#copyright {
+  font-size: 0.9em;
+}
+
+#icon-credit {
+  font-size: 0.7em;
+}
+
+/* ###################### MISCELLANEOUS #################### */
+
+@keyframes bobUpDown {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 3em;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.down-arrow {
+  width: 1.5em;
+  padding: 0;
+  opacity: 1;
+  transition: opacity 1s;
+
+  position: relative;
+  top: 0;
+  animation: bobUpDown 4s ease-in-out infinite;
 }
 
 .fade-in {
