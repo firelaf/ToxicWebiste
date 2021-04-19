@@ -18,7 +18,7 @@ function scrollEffects() {
   let scrollPercentFixed = +scrollPercent.toFixed(2);
 
   //Call all effects that depend on scrolling
-  //backgroundOpacity(scrollPercentFixed);
+  backgroundOpacity(scrollPercentFixed);
 
   fadeOut(currentScroll, downArrow);
 

@@ -75,31 +75,24 @@ nav img {
   transform: translateZ(0);
 }
 .parallax-background {
-  transform: translateZ(-10px) scale(3) translate(8%, 26%);
+  transform: translateZ(-10px) scale(3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes bgIn {
   from {
-    transform: translate(100%, -230%);
+    transform: translate(140%, -150%);
   }
   to {
-    transform: translate(8%, 26%);
+    transform: translate(11%, 22%);
   }
 }
 
 #toxic-logo {
-  position: absolute;
-  /* width: calc(1308px + 410vw + 100vh); */
-  /* transform: translate(-21%, 7%) scale(2); */
-  /* transform: translate(23%, 132%) scale(6.5); */
-  /* background-color: #fff; */
-  /* background-image: url("../img/toxic_logo.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  */
-  /* width: 100%; */
-
-  /* animation: bgIn 1.5s cubic-bezier(0, 0, 0, 1); */
+  transform: translate(11%, 22%);
+  animation: bgIn 1.5s cubic-bezier(0, 0, 0, 1);
 }
 
 /* ##################### MAIN CONTENT ####################### */
