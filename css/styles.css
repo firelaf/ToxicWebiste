@@ -58,7 +58,7 @@ nav img {
 /* ########## PARRALAX SCROLLING EFFECT ############### */
 
 .parallax {
-  perspective: 1px;
+  perspective: 4px;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
@@ -75,7 +75,7 @@ nav img {
   transform: translateZ(0);
 }
 .parallax-background {
-  transform: translateZ(-5px);
+  transform: translateZ(-10px) scale(3) translate(8%, 26%);
 }
 
 @keyframes bgIn {
@@ -83,7 +83,7 @@ nav img {
     transform: translate(100%, -230%);
   }
   to {
-    transform: translate(-33%, -20%);
+    transform: translate(8%, 26%);
   }
 }
 
@@ -92,9 +92,14 @@ nav img {
   /* width: calc(1308px + 410vw + 100vh); */
   /* transform: translate(-21%, 7%) scale(2); */
   /* transform: translate(23%, 132%) scale(6.5); */
-  transform: translate(-33%, -20%);
+  /* background-color: #fff; */
+  /* background-image: url("../img/toxic_logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  */
+  /* width: 100%; */
 
-  animation: bgIn 1.5s cubic-bezier(0, 0, 0, 1);
+  /* animation: bgIn 1.5s cubic-bezier(0, 0, 0, 1); */
 }
 
 /* ##################### MAIN CONTENT ####################### */
