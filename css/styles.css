@@ -80,10 +80,10 @@ nav img {
 
 @keyframes bgIn {
   from {
-    transform: translate(400%, -700%) scale(6.5);
+    transform: translate(400%, -700%) scale(3);
   }
   to {
-    transform: translate(23%, 132%) scale(6.5);
+    transform: translate(8%, 38%) scale(3);
   }
 }
 
@@ -91,7 +91,8 @@ nav img {
   position: absolute;
   /* width: calc(1308px + 410vw + 100vh); */
   /* transform: translate(-21%, 7%) scale(2); */
-  transform: translate(23%, 132%) scale(6.5);
+  /* transform: translate(23%, 132%) scale(6.5); */
+  transform: translate(8%, 38%) scale(3);
 
   animation: bgIn 1.5s cubic-bezier(0, 0, 0, 1);
 }
@@ -106,7 +107,7 @@ section {
   padding: 0;
 }
 
-#first-view {
+.first-view {
   margin-bottom: 20vh;
 }
 
