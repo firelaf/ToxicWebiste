@@ -80,17 +80,18 @@ nav img {
 
 @keyframes bgIn {
   from {
-    transform: translate(215%, -325%) scale(2);
+    transform: translate(400%, -700%) scale(6.5);
   }
   to {
-    transform: translate(-21%, 7%) scale(2);
+    transform: translate(23%, 132%) scale(6.5);
   }
 }
 
 #toxic-logo {
   position: absolute;
   /* width: calc(1308px + 410vw + 100vh); */
-  transform: translate(-21%, 7%) scale(2);
+  /* transform: translate(-21%, 7%) scale(2); */
+  transform: translate(23%, 132%) scale(6.5);
 
   animation: bgIn 1.5s cubic-bezier(0, 0, 0, 1);
 }
