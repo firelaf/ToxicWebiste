@@ -1,6 +1,6 @@
 /* MOBILE AND GLOBAL STYLES */
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300&display=swap");
 
 html,
 body,
@@ -23,16 +23,21 @@ body {
 a {
   color: #fff;
   text-decoration: none;
-  border-bottom: 0.1em solid #ffffff85;
+
+  /* border-bottom: 0.1em solid #ffffff85; */
+}
+a:hover {
+  color: rgba(255, 255, 255, 0.527);
+  transition: color 0.3s;
 }
 
 p {
   margin: 0;
 }
 
-/* ############### NAV MENU ############################## */
+/* ############### FLOATING HEADER ############################## */
 
-nav {
+header {
   position: fixed;
   display: flex;
   justify-content: space-between;
@@ -40,7 +45,7 @@ nav {
   height: auto;
   top: 0;
   right: 0;
-  z-index: 999;
+  z-index: 1;
 
   opacity: 1;
   transition: opacity 2.5s;
@@ -52,7 +57,7 @@ nav {
   );
 }
 
-nav img {
+header img {
   width: calc(25px + 1.5vw);
   padding: 1.3em;
 }
@@ -64,6 +69,7 @@ nav img {
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
+  scroll-behavior: smooth;
 }
 .parallax-layer {
   position: absolute;
@@ -77,7 +83,7 @@ nav img {
   transform: translateZ(0);
 }
 .parallax-background {
-  transform: translateZ(-10px) scale(3);
+  transform: translateZ(-25px) scale(6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,6 +101,71 @@ nav img {
 #toxic-logo {
   transform: translate(11%, 22%);
   animation: bgIn 1.5s cubic-bezier(0, 0, 0, 1);
+}
+
+/* ###################### NAV ############################## */
+
+nav {
+  position: absolute;
+  z-index: 99;
+  left: -100vw;
+  transition: left 0.4s;
+
+  display: flex;
+
+  width: 100vw;
+  height: 100vh;
+
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+nav div {
+  width: 60%;
+  padding: 10vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+nav div a {
+  width: 100%;
+}
+
+nav div a h1 {
+  padding: 0.5em;
+  font-size: calc(23px + 1.5vw);
+}
+
+#social-media-icons {
+  width: 100%;
+  padding: 0;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#social-media-icons a {
+  display: flex;
+  justify-content: center;
+}
+
+#social-media-icons a img {
+  width: 1.5em;
+}
+
+#close-area {
+  width: 40%;
+}
+
+.drawer-out {
+  left: 0;
 }
 
 /* ##################### MAIN CONTENT ####################### */
@@ -116,9 +187,12 @@ section {
 
   opacity: 1;
   transition: opacity 2.5s;
+
+  /* font-weight: 300;
+  text-shadow: 0px 0px 4px #fff; */
 }
 
-section h1 {
+h1 {
   font-size: calc(30px + 1.5vw);
   text-shadow: 0px 0px 4px #fff, 0px 0px 16px #fff;
   text-align: center;
@@ -148,6 +222,43 @@ figure {
   transition: opacity 1s;
 }
 
+#our-story-button {
+  padding-bottom: 13em;
+}
+
+#our-story-button h1 {
+  padding: 0;
+}
+
+#our-story-button a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  padding: 0;
+}
+
+@keyframes bobRight {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 1.5em;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+#our-story-button a img {
+  position: relative;
+  width: 3em;
+  padding: 0;
+  transform: rotate(-90deg);
+  animation: bobRight 2s infinite;
+}
+/* ################################## FOOTER ########################### */
+
 footer {
   display: flex;
   flex-direction: column;
@@ -157,6 +268,10 @@ footer {
 
 footer p {
   margin-bottom: 1em;
+}
+
+footer p a {
+  border-bottom: 0.1em solid #ffffff85;
 }
 
 #copyright {

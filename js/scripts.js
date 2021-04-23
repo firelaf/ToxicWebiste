@@ -97,10 +97,10 @@ function pictureFadeIn(currentScroll, wrapper) {
 //INITIAL FADE-IN'S
 
 const mainTitle = document.querySelector(".main-title");
-const navMenu = document.querySelector("nav");
+const headerMenu = document.querySelector("header");
 
 initFadeIn(mainTitle, 100);
-initFadeIn(navMenu, 100);
+initFadeIn(headerMenu, 100);
 initFadeIn(downArrow, 4000);
 
 function initFadeIn(element, delay) {
@@ -109,4 +109,24 @@ function initFadeIn(element, delay) {
   }, delay);
 }
 
-//FADE OUT
+//MENU
+
+const navMenu = document.querySelector("nav");
+
+function toggleMenu(menu) {
+  if (!navMenu.classList.contains("drawer-out")) {
+    menu.classList.add("drawer-out");
+  } else {
+    menu.classList.remove("drawer-out");
+  }
+}
+
+const menuButton = document.querySelector("#menu-button");
+const closeArea = document.querySelector("#close-area");
+
+menuButton.addEventListener("click", () => {
+  toggleMenu(navMenu);
+});
+closeArea.addEventListener("click", () => {
+  toggleMenu(navMenu);
+});
