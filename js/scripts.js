@@ -18,30 +18,36 @@ function scrollEffects() {
   let scrollPercentFixed = +scrollPercent.toFixed(2);
 
   //Call all effects that depend on scrolling
-  backgroundOpacity(scrollPercentFixed);
+  if (backgroundImg !== null)
+    backgroundOpacity(scrollPercentFixed, backgroundImg);
 
-  fadeOut(currentScroll, downArrow);
+  if (downArrow !== null) fadeOut(currentScroll, downArrow);
 
-  subTitles.forEach((item) => {
-    titleFadeIn(currentScroll, item);
-  });
+  if (subTitles !== null) {
+    subTitles.forEach((item) => {
+      titleFadeIn(currentScroll, item);
+    });
+  }
 
-  pictureBlocks.forEach((item) => {
-    pictureFadeIn(currentScroll, item);
-  });
+  if (pictureBlocks !== null) {
+    pictureBlocks.forEach((item) => {
+      pictureFadeIn(currentScroll, item);
+    });
+  }
 }
 
 //This changes the opacity of the "X" background
 //based on the scroll
-function backgroundOpacity(scrollPercent) {
+function backgroundOpacity(scrollPercent, background) {
   let opacity = 100 - 7 * scrollPercent;
   opacity = opacity.toFixed(2);
 
+  //console.log(opacity);
   //The opacity change stops at 30%
   if (opacity >= 30) {
-    backgroundImg.style.opacity = `${opacity}%`;
+    background.style.opacity = `${opacity}%`;
   } else {
-    backgroundImg.style.opacity = "30%";
+    background.style.opacity = "30%";
   }
 }
 
@@ -99,9 +105,10 @@ function pictureFadeIn(currentScroll, wrapper) {
 const mainTitle = document.querySelector(".main-title");
 const headerMenu = document.querySelector("header");
 
-initFadeIn(mainTitle, 100);
 initFadeIn(headerMenu, 100);
-initFadeIn(downArrow, 4000);
+
+if (mainTitle !== null) initFadeIn(mainTitle, 100);
+if (downArrow !== null) initFadeIn(downArrow, 4000);
 
 function initFadeIn(element, delay) {
   setTimeout(() => {
