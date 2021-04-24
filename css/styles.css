@@ -214,7 +214,7 @@ figure {
 .sub-title {
   opacity: 1;
   transition: opacity 1s;
-  padding-bottom: 6em;
+  padding-bottom: 40vh;
 }
 
 .img-in-block {
