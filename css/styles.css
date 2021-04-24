@@ -58,7 +58,7 @@ header {
 }
 
 header img {
-  width: calc(25px + 1.5vw);
+  width: calc(25px + 0.5vw);
   padding: 1.3em;
 }
 
@@ -313,10 +313,100 @@ footer p a {
 
 /* TABLET STYLES */
 
-@media screen and (min-width: 500px) {
-}
+@media screen and (min-width: 600px) {
+  /* ################### NAV ##################### */
+  nav div {
+    padding: 2vh 0;
+  }
+  #social-media-icons {
+    padding: 1em;
+  }
 
-@media screen and (min-width: 700px) {
+  /* ################# BACKGROUND ###################### */
+
+  @keyframes bgIn600px {
+    from {
+      transform: translate(140%, -150%);
+    }
+    to {
+      transform: translate(40%, 0%);
+    }
+  }
+
+  .parallax-background {
+    transform: translateZ(-150px) scale(32);
+  }
+  #toxic-logo {
+    transform: translate(40%, 0%);
+    animation: bgIn600px 1.5s cubic-bezier(0, 0, 0, 1);
+  }
+
+  /* ############### MAIN CONTENT #################### */
+  .main-title {
+    padding: 46vh 23vw 23vh 0vh;
+  }
+
+  figure {
+    display: grid;
+    column-gap: 25px;
+    margin: 0;
+  }
+
+  section img {
+    width: 90%;
+    padding: 0.5em 0;
+  }
+
+  #bold1 {
+    order: 2;
+    grid-column: 2;
+    align-self: end;
+    justify-self: self-start;
+  }
+  #bold2 {
+    order: 1;
+    grid-row-start: span 2;
+    width: 85%;
+    justify-self: end;
+  }
+  #bold3 {
+    order: 3;
+    grid-column: 2;
+    align-self: start;
+    justify-self: self-start;
+  }
+
+  #competitive1 {
+    grid-column: 1;
+    justify-self: end;
+    width: 83%;
+  }
+  #competitive2 {
+    grid-column: 2;
+    grid-row-start: span 2;
+    justify-self: start;
+  }
+  #competitive3 {
+    grid-column: 1;
+    justify-self: end;
+    width: 82%;
+  }
+
+  #fun1 {
+    grid-row: 1;
+    align-self: center;
+    justify-self: end;
+  }
+  #fun2 {
+    grid-row: 1;
+    align-self: start;
+    justify-self: start;
+  }
+  #fun3 {
+    grid-column-start: span 2;
+    align-self: start;
+    justify-self: center;
+  }
 }
 
 /* DESKTOP STYLES */
