@@ -174,8 +174,13 @@ nav div a h1 {
 
 /* ##################### MAIN CONTENT ####################### */
 
-section aside {
+section p {
   width: 80vw;
+}
+
+section div,
+section p {
+  transition: opacity 1s;
 }
 
 section video {
@@ -193,6 +198,10 @@ section {
   flex-direction: column;
   width: 100vw;
   padding: 0;
+}
+
+article {
+  padding-bottom: 30vh;
 }
 
 .first-view {
@@ -322,6 +331,27 @@ footer p a {
   position: relative;
   top: 0;
   animation: bobUpDown 4s ease-in-out infinite;
+}
+
+.video-wrapper {
+  width: 80vw;
+  height: 80vw;
+}
+
+.play-pause {
+  right: -3vw;
+  top: -12vw;
+}
+
+.mute-unmute {
+  left: 67vw;
+  bottom: 80vw;
+}
+
+.video-control {
+  position: relative;
+  width: 5vw;
+  height: 5vw;
 }
 
 .fade-in {

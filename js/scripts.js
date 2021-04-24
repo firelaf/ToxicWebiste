@@ -1,9 +1,10 @@
 // SCROLL EFFECTS
 const subTitles = document.querySelectorAll(".sub-title");
 const scrollArea = document.querySelector(".parallax");
-const pictureBlocks = document.querySelectorAll("figure");
+const pictureBlocks = document.querySelectorAll(".block-fade-in");
 const backgroundImg = document.querySelector("#toxic-logo");
 const downArrow = document.querySelector(".down-arrow");
+const videos = document.querySelectorAll("video");
 
 scrollArea.addEventListener("scroll", scrollEffects);
 
@@ -34,6 +35,17 @@ function scrollEffects() {
       pictureFadeIn(currentScroll, item);
     });
   }
+
+  if (videos !== null) {
+    videos.forEach((item) => {
+      autoPause(item, currentScroll);
+    });
+  }
+}
+
+function autoPause(element, currentScroll) {
+  if (element.offsetTop + element.offsetHeight <= currentScroll)
+    element.pause();
 }
 
 //This changes the opacity of the "X" background
@@ -137,3 +149,48 @@ menuButton.addEventListener("click", () => {
 closeArea.addEventListener("click", () => {
   toggleMenu(navMenu);
 });
+
+// VIDEO CONTROLS
+
+const videoContainters = document.querySelectorAll(".video-wrapper");
+
+videoContainters.forEach((item) => {
+  let video, playPauseButton, muteUnmuteButton;
+
+  Array.from(item.children).forEach((item) => {
+    if (item.nodeName === "VIDEO") video = item;
+    if (item.classList.contains("play-pause")) playPauseButton = item;
+    if (item.classList.contains("mute-unmute")) muteUnmuteButton = item;
+  });
+
+  playPauseButton.addEventListener("click", () => {
+    playPause(video, playPauseButton);
+  });
+
+  muteUnmuteButton.addEventListener("click", () => {
+    muteUnmute(video, muteUnmuteButton);
+  });
+
+  video.addEventListener("click", () => {
+    muteUnmute(video, muteUnmuteButton);
+  });
+});
+
+const playPause = (video, button) => {
+  if (!video.paused) video.pause();
+  else video.play();
+
+  if (video.paused) {
+    button.src = "img/icons/001-play-button-arrowhead.png";
+  } else button.src = "img/icons/002-pause.png";
+};
+
+const muteUnmute = (video, button) => {
+  if (!video.muted) video.muted = true;
+  else video.muted = false;
+
+  if (!video.muted) {
+    console.log("sound");
+    button.src = "img/icons/004-sound-on.png";
+  } else button.src = "img/icons/003-sound-off.png";
+};
