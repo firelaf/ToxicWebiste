@@ -240,6 +240,7 @@ article {
   justify-content: center;
   width: 100%;
   height: 50vw;
+  margin: 1em 0;
 }
 
 .embed-wrapper > iframe {
@@ -420,7 +421,7 @@ video {
 @media screen and (min-width: 600px) {
   /* ################### NAV ##################### */
   nav div {
-    padding: 2vh 0;
+    padding: 5vh 0 0 0;
   }
   #social-media-icons {
     padding: 1em;
@@ -476,10 +477,6 @@ video {
     height: 40vw;
   }
 
-  /* .embed-wrapper img {
-    margin: 1em;
-  } */
-
   .video-block {
     display: grid;
     column-gap: 1em;
@@ -492,6 +489,7 @@ video {
 
   .embed-wrapper {
     height: 18vw;
+    margin: 0;
   }
 
   #paragraph2 p,
