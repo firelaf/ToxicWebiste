@@ -44,8 +44,10 @@ function scrollEffects() {
 }
 
 function autoPause(element, currentScroll) {
-  if (element.offsetTop + element.offsetHeight <= currentScroll)
+  if (element.offsetTop + element.offsetHeight <= currentScroll) {
     element.pause();
+    togglePlayButton(element, element.nextElementSibling);
+  }
 }
 
 //This changes the opacity of the "X" background
@@ -114,11 +116,13 @@ function pictureFadeIn(currentScroll, wrapper) {
 //INITIAL FADE-IN'S
 
 const mainTitle = document.querySelector(".main-title");
+const mainTitle2 = document.querySelector(".main-title2");
 const headerMenu = document.querySelector("header");
 
 initFadeIn(headerMenu, 100);
 
 if (mainTitle !== null) initFadeIn(mainTitle, 100);
+if (mainTitle2 !== null) initFadeIn(mainTitle2, 100);
 if (downArrow !== null) initFadeIn(downArrow, 4000);
 
 function initFadeIn(element, delay) {
@@ -163,22 +167,27 @@ videoContainters.forEach((item) => {
   });
 
   playPauseButton.addEventListener("click", () => {
-    playPause(video, playPauseButton);
+    playPause(video);
+    togglePlayButton(video, playPauseButton);
   });
 
   muteUnmuteButton.addEventListener("click", () => {
-    muteUnmute(video, muteUnmuteButton);
+    muteUnmute(video);
+    toggleMuteButton(video, muteUnmuteButton);
   });
 
   video.addEventListener("click", () => {
-    muteUnmute(video, muteUnmuteButton);
+    muteUnmute(video);
+    toggleMuteButton(video, muteUnmuteButton);
   });
 });
 
-const playPause = (video, button) => {
+const playPause = (video) => {
   if (!video.paused) video.pause();
   else video.play();
+};
 
+const togglePlayButton = (video, button) => {
   if (video.paused) {
     button.src = "img/icons/001-play-button-arrowhead.png";
   } else button.src = "img/icons/002-pause.png";
@@ -187,7 +196,9 @@ const playPause = (video, button) => {
 const muteUnmute = (video, button) => {
   if (!video.muted) video.muted = true;
   else video.muted = false;
+};
 
+const toggleMuteButton = (video, button) => {
   if (!video.muted) {
     button.src = "img/icons/004-sound-on.png";
   } else button.src = "img/icons/003-sound-off.png";
