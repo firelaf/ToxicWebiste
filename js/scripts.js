@@ -104,10 +104,7 @@ function pictureFadeIn(currentScroll, wrapper) {
 
   //The recursive function is executed when the user
   //scrolls the wrapper a little under halfway into view
-  if (
-    currentScroll >=
-    wrapper.parentElement.offsetTop - window.innerHeight / 2.5
-  ) {
+  if (currentScroll >= wrapper.offsetTop - window.innerHeight / 2.5) {
     let i = 0;
     displayImages(i);
   }
@@ -153,7 +150,7 @@ closeArea.addEventListener("click", () => {
   toggleMenu(navMenu);
 });
 
-// VIDEO CONTROLS
+// VIDEO CONTROLS STORY PAGE
 
 const videoContainters = document.querySelectorAll(".video-wrapper");
 
@@ -203,3 +200,24 @@ const toggleMuteButton = (video, button) => {
     button.src = "img/icons/004-sound-on.png";
   } else button.src = "img/icons/003-sound-off.png";
 };
+
+// LAZY LOAD PERFORMANCE PAGE
+
+const embedWrappers = document.querySelectorAll(".embed-wrapper");
+
+if (embedWrappers !== null) {
+  embedWrappers.forEach((item) => {
+    item.firstElementChild.addEventListener("click", () => {
+      let videoID = item.firstElementChild.name;
+      item.firstElementChild.remove();
+
+      let ytEmbed = document.createElement("iframe");
+      ytEmbed.src = `https://www.youtube-nocookie.com/embed/${videoID}?autoplay=1`;
+      ytEmbed.frameBorder = 0;
+      ytEmbed.allow =
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      ytEmbed.allowFullscreen = true;
+      item.appendChild(ytEmbed);
+    });
+  });
+}
