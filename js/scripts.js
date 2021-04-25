@@ -54,7 +54,6 @@ function backgroundOpacity(scrollPercent, background) {
   let opacity = 100 - 7 * scrollPercent;
   opacity = opacity.toFixed(2);
 
-  //console.log(opacity);
   //The opacity change stops at 30%
   if (opacity >= 30) {
     background.style.opacity = `${opacity}%`;
@@ -190,7 +189,6 @@ const muteUnmute = (video, button) => {
   else video.muted = false;
 
   if (!video.muted) {
-    console.log("sound");
     button.src = "img/icons/004-sound-on.png";
   } else button.src = "img/icons/003-sound-off.png";
 };
