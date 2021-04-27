@@ -393,23 +393,25 @@ video {
 }
 
 .video-wrapper {
+  display: flex;
   width: 80vw;
   height: 80vw;
 }
 
-.play-pause {
-  right: -3vw;
-  top: -12vw;
+.mute-unmute {
+  right: 24%;
+  top: 5%;
 }
 
-.mute-unmute {
-  left: 67vw;
-  bottom: 80vw;
+.play-pause {
+  left: -95%;
+  top: 85%;
 }
 
 .video-control {
   position: relative;
-  width: 5vw;
+  width: 10%;
+  height: 10%;
 }
 
 .fade-in {
@@ -559,21 +561,6 @@ video {
     padding-bottom: 27vh;
   }
   /* ################### MISCELLANIOUS ################ */
-
-  .video-control {
-    position: relative;
-    width: 3vw;
-  }
-
-  .mute-unmute {
-    left: 31vw;
-    top: -39vw;
-  }
-
-  .play-pause {
-    right: -3vw;
-    top: -7vw;
-  }
 }
 /* DESKTOP STYLES */
 

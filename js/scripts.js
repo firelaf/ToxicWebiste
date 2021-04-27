@@ -221,3 +221,9 @@ if (embedWrappers !== null) {
     });
   });
 }
+
+//EMAIL FORMAT
+
+const emailForm = document.querySelector("form");
+
+emailForm.addEventListener("submit", () => console.log("submitted"));
