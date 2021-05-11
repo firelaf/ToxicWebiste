@@ -50,11 +50,35 @@
       <div class="parallax-layer parallax-foreground">
         <form id="send-email" style="margin-top: 50vh">
           <label for="email">Email:*</label><br />
-          <input type="email" name="email" /><br />
+          <input
+            type="email"
+            name="email"
+            class="textbox"
+            placeholder="Your Email..."
+          /><br />
+          <label for="name">Name:</label><br />
+          <input
+            type="text"
+            name="name"
+            class="textbox"
+            placeholder="Your Name"
+          /><br />
           <label for="subject">Subject:*</label><br />
-          <input type="subject" name="subject" /><br />
+          <input
+            type="subject"
+            name="subject"
+            class="textbox"
+            placeholder="Subject of your message..."
+          /><br />
           <label for="msg">Message:</label><br />
-          <textarea name="msg" id="message"> </textarea><br />
+          <textarea
+            name="msg"
+            class="textbox"
+            id="message"
+            placeholder="Please enter a message..."
+          >
+          </textarea
+          ><br />
           <input type="submit" />
         </form>
       </div>

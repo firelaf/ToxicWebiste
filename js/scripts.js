@@ -222,8 +222,46 @@ if (embedWrappers !== null) {
   });
 }
 
-//EMAIL FORMAT
+//EMAIL FORM
 
 const emailForm = document.querySelector("form");
 
-emailForm.addEventListener("submit", () => console.log("submitted"));
+emailForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let email,
+    name,
+    subject,
+    msg = "";
+
+  Array.from(emailForm.children).forEach((item) => {
+    email = item.name === "email" ? item.value : email;
+    name = item.name === "name" ? item.value : name;
+    subject = item.name === "subject" ? item.value : subject;
+    msg = item.name === "msg" ? item.value : msg;
+  });
+
+  const emailData = {
+    service_id: "service_sfe5oaf",
+    template_id: "template_nxr0z9i",
+    user_id: "user_KdipX7dbjtw6CapdNEytZ",
+    accessToken: "92f38ba9726790d7869573a563753ef1",
+    template_params: {
+      reply_to: email,
+      from_name: name,
+      subject: subject,
+      message: msg,
+    },
+  };
+  console.log(emailData);
+
+  fetch("https://api.emailjs.com/api/v1.0/email/send", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(emailData),
+  })
+    .then((response) => {
+      console.log(JSON.stringify(emailData));
+      return response.text();
+    })
+    .then((response) => console.log(response));
+});
