@@ -339,28 +339,43 @@ section > h1 {
 }
 
 .main-title3 {
-  margin-top: 40vh;
+  margin-top: 15vh;
 }
 
-#form-wrapper {
+#social-media {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 50vw 50vw;
+  justify-items: center;
+  grid-row-gap: 3em;
+  width: 100%;
+  margin: 5vh 0;
+}
+
+#social-media a img {
+  width: 5.5em;
+}
+
+.content-wrapper {
   display: flex;
   justify-content: center;
+  margin-bottom: 10vh;
 }
 
-form {
+.content {
   box-sizing: border-box;
   width: 85vw;
   transition: opacity 2s;
 }
 
 .textbox {
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(43, 43, 43, 0.65);
   box-sizing: border-box;
   width: 100%;
   padding: 0.5em;
   margin-bottom: 0.5em;
   max-width: 100%;
-  border: 2px solid rgba(0, 0, 0, 1);
+  border: 1px solid rgba(0, 0, 0, 1);
   border-radius: 5px;
   color: #fff;
   font-family: "Roboto", sans-serif;
@@ -379,11 +394,11 @@ form textarea {
 
 input[type="submit"] {
   width: 100%;
-  background-color: #000;
+  background-color: rgb(43, 43, 43);
   color: #fff;
   font-family: "Roboto", sans-serif;
   font-size: 1.5em;
-  border: 1px solid #fff;
+  border: 1px solid #000;
   border-radius: 5px;
   padding: 0.15em;
 }

@@ -115,16 +115,20 @@ function pictureFadeIn(currentScroll, wrapper) {
 const mainTitle = document.querySelector(".main-title");
 const mainTitle2 = document.querySelector(".main-title2");
 const mainTitle3 = document.querySelector(".main-title3");
+const mainTitle4 = document.querySelector(".main-title4");
 const headerMenu = document.querySelector("header");
-const form = document.querySelector("form");
+const content = document.querySelectorAll(".content");
+console.log(content);
 
 initFadeIn(headerMenu, 100);
 
 if (mainTitle !== null) initFadeIn(mainTitle, 100);
 if (mainTitle2 !== null) initFadeIn(mainTitle2, 100);
 if (mainTitle3 !== null) initFadeIn(mainTitle3, 100);
+if (mainTitle4 !== null) initFadeIn(mainTitle4, 100);
 if (downArrow !== null) initFadeIn(downArrow, 4000);
-if (form !== null) initFadeIn(form, 100);
+if (content[0] !== null) initFadeIn(content[0], 300);
+if (content[1] !== null) initFadeIn(content[1], 300);
 
 function initFadeIn(element, delay) {
   setTimeout(() => {
