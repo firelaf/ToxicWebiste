@@ -48,39 +48,40 @@
       </div>
 
       <div class="parallax-layer parallax-foreground">
-        <form id="send-email" style="margin-top: 50vh">
-          <label for="email">Email:*</label><br />
-          <input
-            type="email"
-            name="email"
-            class="textbox"
-            placeholder="Your Email..."
-          /><br />
-          <label for="name">Name:</label><br />
-          <input
-            type="text"
-            name="name"
-            class="textbox"
-            placeholder="Your Name"
-          /><br />
-          <label for="subject">Subject:*</label><br />
-          <input
-            type="subject"
-            name="subject"
-            class="textbox"
-            placeholder="Subject of your message..."
-          /><br />
-          <label for="msg">Message:</label><br />
-          <textarea
-            name="msg"
-            class="textbox"
-            id="message"
-            placeholder="Please enter a message..."
-          >
-          </textarea
-          ><br />
-          <input type="submit" />
-        </form>
+        <section id="form-wrapper">
+          <h1 class="main-title3 fade-in">Drop us an email:</h1>
+          <form id="send-email" class="fade-in">
+            <label for="email" required>Email:</label><br />
+            <input
+              type="email"
+              name="email"
+              class="textbox"
+              placeholder="Your Email..."
+            /><br />
+            <label for="name" required>Name:</label><br />
+            <input
+              type="text"
+              name="name"
+              class="textbox"
+              placeholder="Your Name"
+            /><br />
+            <label for="subject" required>Subject:</label><br />
+            <input
+              type="subject"
+              name="subject"
+              class="textbox"
+              placeholder="Subject of your message..."
+            /><br />
+            <label for="msg" required>Message:</label><br />
+            <textarea
+              name="msg"
+              class="textbox"
+              placeholder="Please enter a message..."
+            ></textarea
+            ><br />
+            <input type="submit" value="Send" />
+          </form>
+        </section>
       </div>
     </div>
 

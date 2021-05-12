@@ -114,13 +114,17 @@ function pictureFadeIn(currentScroll, wrapper) {
 
 const mainTitle = document.querySelector(".main-title");
 const mainTitle2 = document.querySelector(".main-title2");
+const mainTitle3 = document.querySelector(".main-title3");
 const headerMenu = document.querySelector("header");
+const form = document.querySelector("form");
 
 initFadeIn(headerMenu, 100);
 
 if (mainTitle !== null) initFadeIn(mainTitle, 100);
 if (mainTitle2 !== null) initFadeIn(mainTitle2, 100);
+if (mainTitle3 !== null) initFadeIn(mainTitle3, 100);
 if (downArrow !== null) initFadeIn(downArrow, 4000);
+if (form !== null) initFadeIn(form, 100);
 
 function initFadeIn(element, delay) {
   setTimeout(() => {
@@ -227,7 +231,7 @@ if (embedWrappers !== null) {
 const emailForm = document.querySelector("form");
 
 emailForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+  //event.preventDefault();
   let email,
     name,
     subject,
@@ -254,14 +258,14 @@ emailForm.addEventListener("submit", (event) => {
   };
   console.log(emailData);
 
-  fetch("https://api.emailjs.com/api/v1.0/email/send", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(emailData),
-  })
-    .then((response) => {
-      console.log(JSON.stringify(emailData));
-      return response.text();
-    })
-    .then((response) => console.log(response));
+  // fetch("https://api.emailjs.com/api/v1.0/email/send", {
+  //   method: "POST",
+  //   headers: { "Content-Type": "application/json" },
+  //   body: JSON.stringify(emailData),
+  // })
+  //   .then((response) => {
+  //     console.log(JSON.stringify(emailData));
+  //     return response.text();
+  //   })
+  //   .then((response) => console.log(response));
 });
