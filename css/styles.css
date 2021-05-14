@@ -294,7 +294,7 @@ section > h1 {
 .sub-title {
   opacity: 1;
   transition: opacity 1s;
-  padding-bottom: 11vh;
+  padding-bottom: 5vh;
 }
 
 .img-in-block {
@@ -354,6 +354,7 @@ section > h1 {
 
 #social-media a img {
   width: 5.5em;
+  padding-bottom: 1em;
 }
 
 .content-wrapper {
@@ -371,12 +372,13 @@ section > h1 {
 .content a {
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
 }
 
 .content a h1 {
-  font-size: 2em;
+  font-size: 1em;
 }
 
 .textbox {
@@ -482,13 +484,13 @@ video {
 }
 
 .mute-unmute {
-  right: 24%;
-  top: 5%;
+  right: 22%;
+  margin-top: 4%;
 }
 
 .play-pause {
   left: -95%;
-  top: 85%;
+  margin-top: 85%;
 }
 
 .video-control {
@@ -555,6 +557,7 @@ video {
   article {
     flex-direction: row;
     justify-content: center;
+    align-items: center;
   }
 
   article p {
@@ -565,7 +568,7 @@ video {
 
   .video-wrapper {
     width: 40%;
-    height: auto;
+    height: 40%;
   }
 
   .video-block {
@@ -576,7 +579,7 @@ video {
   }
 
   .video-block h1 {
-    grid-column-start: span 2;
+    grid-column-start: span 3;
   }
 
   .embed-wrapper {
@@ -647,6 +650,13 @@ video {
     justify-self: center;
   }
 
+  .content a {
+    flex-direction: row;
+  }
+  .content a h1 {
+    font-size: 2em;
+  }
+
   #next-page-button {
     padding-bottom: 27vh;
   }
@@ -696,7 +706,7 @@ video {
   }
   nav div a h1 {
     padding: 0.5em;
-    font-size: 2.75vw;
+    font-size: 2em;
   }
   #close-area {
     display: none;
@@ -720,6 +730,13 @@ video {
   article {
     width: 100%;
     padding-bottom: 20vh;
+  }
+  form {
+    font-size: 1.5em;
+  }
+  form input,
+  form textarea {
+    font-size: 1em;
   }
 }
 

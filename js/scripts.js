@@ -222,7 +222,6 @@ if (embedWrappers !== null) {
     item.firstElementChild.addEventListener("click", () => {
       const imgHeight = item.firstElementChild.clientHeight;
       const imgWidth = item.firstElementChild.clientWidth;
-      console.log(imgHeight);
       let videoID = item.firstElementChild.name;
       item.firstElementChild.remove();
 
@@ -245,7 +244,7 @@ const emailForm = document.querySelector("form");
 
 if (emailForm !== null) {
   emailForm.addEventListener("submit", (event) => {
-    //event.preventDefault();
+    event.preventDefault();
     let email,
       name,
       subject,
@@ -257,6 +256,8 @@ if (emailForm !== null) {
       subject = item.name === "subject" ? item.value : subject;
       msg = item.name === "msg" ? item.value : msg;
     });
+
+    const submitButton = emailForm.lastElementChild;
 
     const emailData = {
       service_id: "service_sfe5oaf",
@@ -270,17 +271,71 @@ if (emailForm !== null) {
         message: msg,
       },
     };
-    console.log(emailData);
 
-    // fetch("https://api.emailjs.com/api/v1.0/email/send", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(emailData),
-    // })
-    //   .then((response) => {
-    //     console.log(JSON.stringify(emailData));
-    //     return response.text();
-    //   })
-    //   .then((response) => console.log(response));
+    submitButton.style.transition = "color 1s";
+    submitButton.style.color = "rgba(0,0,0,0)";
+    submitButton.style.backgroundColor = "rgb(24, 24, 24)";
+    disableInputs();
+    setTimeout(() => {
+      submitButton.value = "...";
+      submitButton.style.color = "rgba(255, 255, 255, 1)";
+    }, 1000);
+
+    fetch("https://api.emailjs.com/api/v1.0/email/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(emailData),
+    })
+      .then((response) => {
+        return response.text();
+      })
+      .then((response) => {
+        console.log(response);
+        if (response === "OK") {
+          submitButton.style.color = "rgba(0,0,0,0)";
+          setTimeout(() => {
+            submitButton.value = "Thank you!";
+            submitButton.style.color = "rgba(255, 255, 255, 1)";
+          }, 1000);
+        } else {
+          handleError();
+        }
+      })
+      .catch((error) => {
+        handleError();
+        throw error;
+      });
+
+    function disableInputs() {
+      Array.from(emailForm.children).forEach((item) => {
+        if (item.tagName === "INPUT" || item.tagName === "TEXTAREA") {
+          item.disabled = true;
+
+          if (item.type !== "submit") {
+            item.style.transition = "color 1.5s";
+            item.style.color = "#5e5e5e";
+          }
+        }
+      });
+    }
+    function enableInputs() {
+      Array.from(emailForm.children).forEach((item) => {
+        if (item.tagName === "INPUT" || item.tagName === "TEXTAREA") {
+          item.disabled = false;
+
+          if (item.type !== "submit") {
+            item.style.transition = "color 1.5s";
+            item.style.color = "#fff";
+          }
+        }
+      });
+    }
+    function handleError() {
+      setTimeout(() => {
+        submitButton.value = "Sorry. Try again later!";
+        submitButton.style.color = "rgba(255, 255, 255, 1)";
+        enableInputs();
+      }, 1000);
+    }
   });
 }
