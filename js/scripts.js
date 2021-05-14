@@ -142,6 +142,7 @@ function initFadeIn(element, delay) {
 
 //MENU
 
+//This toggles the nav menu
 const navMenu = document.querySelector("nav");
 
 function toggleMenu(menu) {
@@ -217,6 +218,8 @@ const toggleMuteButton = (video, button) => {
 
 const embedWrappers = document.querySelectorAll(".embed-wrapper");
 
+//This takes all the thumnail pictures and adds a click listener to them. Once they are clicked,
+//the iframe video is loaded from the YouTube API with the pixel dimensions of the image.
 if (embedWrappers !== null) {
   embedWrappers.forEach((item) => {
     item.firstElementChild.addEventListener("click", () => {
@@ -250,6 +253,7 @@ if (emailForm !== null) {
       subject,
       msg = "";
 
+    //This populates the variables which were set to "" by default
     Array.from(emailForm.children).forEach((item) => {
       email = item.name === "email" ? item.value : email;
       name = item.name === "name" ? item.value : name;
@@ -259,6 +263,8 @@ if (emailForm !== null) {
 
     const submitButton = emailForm.lastElementChild;
 
+    //This is the data sent to the email API
+    //The the actual email data is inside template_params
     const emailData = {
       service_id: "service_sfe5oaf",
       template_id: "template_nxr0z9i",
@@ -272,6 +278,7 @@ if (emailForm !== null) {
       },
     };
 
+    //This is the animations, indicating to the user something is hapenning when they press the "send" button
     submitButton.style.transition = "color 1s";
     submitButton.style.color = "rgba(0,0,0,0)";
     submitButton.style.backgroundColor = "rgb(24, 24, 24)";
@@ -281,6 +288,7 @@ if (emailForm !== null) {
       submitButton.style.color = "rgba(255, 255, 255, 1)";
     }, 1000);
 
+    //Fetch request to the emailJS API with the form data as JSON
     fetch("https://api.emailjs.com/api/v1.0/email/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -290,6 +298,7 @@ if (emailForm !== null) {
         return response.text();
       })
       .then((response) => {
+        //If the HTTP response is 200 OK
         console.log(response);
         if (response === "OK") {
           submitButton.style.color = "rgba(0,0,0,0)";
@@ -306,6 +315,7 @@ if (emailForm !== null) {
         throw error;
       });
 
+    //Disables the whole form and inicates to the user the data is unchangeable anymore
     function disableInputs() {
       Array.from(emailForm.children).forEach((item) => {
         if (item.tagName === "INPUT" || item.tagName === "TEXTAREA") {
@@ -318,6 +328,7 @@ if (emailForm !== null) {
         }
       });
     }
+    //Enables the form back in case of an error so the user can copy their data or modify it and try again
     function enableInputs() {
       Array.from(emailForm.children).forEach((item) => {
         if (item.tagName === "INPUT" || item.tagName === "TEXTAREA") {

@@ -193,10 +193,6 @@ section p {
   transition: opacity 1s;
 }
 
-input[pseudo="-internal-media-controls-overflow-button"] {
-  display: none;
-}
-
 section {
   display: flex;
   align-items: center;
