@@ -734,6 +734,14 @@ video {
   form textarea {
     font-size: 1em;
   }
+  .mute-unmute {
+    right: 17%;
+    margin-top: 4%;
+  }
+  .play-pause {
+    left: -97%;
+    margin-top: 90%;
+  }
 }
 
 @media screen and (min-width: 1300px) {
