@@ -8,49 +8,16 @@
     <title>Document</title>
   </head>
   <body>
-    <nav>
-      <div id="action-area">
-        <a href="index.html"><h1>Home</h1></a>
-        <a href="story.html"><h1>Our Story</h1></a>
-        <a href="performance.html"><h1>Performance</h1></a>
-        <a href="findus.html"><h1>Find Us</h1></a>
-        <div id="social-media-icons">
-          <a href="https://www.instagram.com/toxic.dance">
-            <img src="img/icons/instagram.svg" alt="Instagram icon" />
-          </a>
-          <a href="https://www.youtube.com/ToxicDance">
-            <img src="img/icons/youtube.svg" alt="YouTube icon" />
-          </a>
-          <a href="https://www.tiktok.com/@toxic.dance.bg">
-            <img src="img/icons/tiktok.svg" alt="TikTok icon" />
-          </a>
-          <a href="https://www.facebook.com/ToxicGroupOfficial">
-            <img src="img/icons/facebook.svg" alt="Facebook icon" />
-          </a>
-        </div>
-      </div>
-      <div id="close-area"></div>
-    </nav>
-
-    <header class="fade-in">
+    <header>
       <img id="menu-button" src="img/icons/menu.png" alt="menu icon" />
       <!-- <img src="img/icons/globe.png" alt="language icon" /> -->
-    </header>
-
-    <div class="parallax">
-      <div class="parallax-layer parallax-background toxic-logo">
-        <img
-          id="toxic-logo-2"
-          class="logo-background"
-          src="img/toxic_logo.png"
-          alt="Toxic logo (background)"
-        />
-      </div>
-
-      <div class="parallax-layer parallax-foreground">
-        <section class="content-wrapper">
-          <h1 class="main-title3 fade-in">Follow us on Social Media!</h1>
-          <div id="social-media" class="content fade-in">
+      <nav>
+        <div id="action-area">
+          <a href="index.html"><h1>Home</h1></a>
+          <a href="story.html"><h1>Our Story</h1></a>
+          <a href="performance.html"><h1>Performance</h1></a>
+          <a href="findus.html"><h1>Find Us</h1></a>
+          <div id="social-media-icons">
             <a href="https://www.instagram.com/toxic.dance">
               <img src="img/icons/instagram.svg" alt="Instagram icon" />
             </a>
@@ -64,42 +31,80 @@
               <img src="img/icons/facebook.svg" alt="Facebook icon" />
             </a>
           </div>
-        </section>
+        </div>
+        <div id="close-area"></div>
+      </nav>
+    </header>
 
-        <section class="content-wrapper">
-          <h1 class="main-title4 fade-in">Drop us an email:</h1>
-          <form id="send-email" class="content fade-in">
-            <label for="email" required>Email:</label><br />
-            <input
-              type="email"
-              name="email"
-              class="textbox"
-              placeholder="Your Email..."
-            /><br />
-            <label for="name" required>Name:</label><br />
-            <input
-              type="text"
-              name="name"
-              class="textbox"
-              placeholder="Your Name"
-            /><br />
-            <label for="subject" required>Subject:</label><br />
-            <input
-              type="subject"
-              name="subject"
-              class="textbox"
-              placeholder="Subject of your message..."
-            /><br />
-            <label for="msg" required>Message:</label><br />
-            <textarea
-              name="msg"
-              class="textbox"
-              placeholder="Please enter a message..."
-            ></textarea
-            ><br />
-            <input type="submit" value="Send" />
-          </form>
-        </section>
+    <div class="parallax">
+      <div class="parallax-layer parallax-background toxic-logo">
+        <img
+          id="toxic-logo-2"
+          class="logo-background"
+          src="img/toxic_logo.png"
+          alt="Toxic logo (background)"
+        />
+      </div>
+
+      <div class="parallax-layer parallax-foreground">
+        <main>
+          <section class="content-wrapper">
+            <h1 class="main-title3 fade-in">Follow us on Social Media!</h1>
+            <div id="social-media" class="content fade-in">
+              <a href="https://www.instagram.com/toxic.dance">
+                <img src="img/icons/instagram.svg" alt="Instagram icon" />
+                <h1>@toxic.dance</h1>
+              </a>
+              <a href="https://www.youtube.com/ToxicDance">
+                <img src="img/icons/youtube.svg" alt="YouTube icon" />
+                <h1>/ToxicDance</h1>
+              </a>
+              <a href="https://www.tiktok.com/@toxic.dance.bg">
+                <img src="img/icons/tiktok.svg" alt="TikTok icon" />
+                <h1>@toxic.dance.bg</h1>
+              </a>
+              <a href="https://www.facebook.com/ToxicGroupOfficial">
+                <img src="img/icons/facebook.svg" alt="Facebook icon" />
+                <h1>/ToxicGroupOfficial</h1>
+              </a>
+            </div>
+          </section>
+
+          <section class="content-wrapper">
+            <h1 class="main-title4 fade-in">Drop us an email:</h1>
+            <form id="send-email" class="content fade-in">
+              <label for="email" required>Email:</label><br />
+              <input
+                type="email"
+                name="email"
+                class="textbox"
+                placeholder="Your Email..."
+              /><br />
+              <label for="name" required>Name:</label><br />
+              <input
+                type="text"
+                name="name"
+                class="textbox"
+                placeholder="Your Name"
+              /><br />
+              <label for="subject" required>Subject:</label><br />
+              <input
+                type="subject"
+                name="subject"
+                class="textbox"
+                placeholder="Subject of your message..."
+              /><br />
+              <label for="msg" required>Message:</label><br />
+              <textarea
+                name="msg"
+                class="textbox"
+                placeholder="Please enter a message..."
+              ></textarea
+              ><br />
+              <input type="submit" value="Send" />
+            </form>
+          </section>
+        </main>
 
         <footer>
           <p id="copyright">&copy; Copyright 2021 Daniel Sergilov</p>

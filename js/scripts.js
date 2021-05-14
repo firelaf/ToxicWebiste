@@ -1,3 +1,8 @@
+function exists(element) {
+  if (element !== null && element !== undefined) return true;
+  else return false;
+}
+
 // SCROLL EFFECTS
 const subTitles = document.querySelectorAll(".sub-title");
 const scrollArea = document.querySelector(".parallax");
@@ -118,17 +123,16 @@ const mainTitle3 = document.querySelector(".main-title3");
 const mainTitle4 = document.querySelector(".main-title4");
 const headerMenu = document.querySelector("header");
 const content = document.querySelectorAll(".content");
-console.log(content);
 
 initFadeIn(headerMenu, 100);
 
-if (mainTitle !== null) initFadeIn(mainTitle, 100);
-if (mainTitle2 !== null) initFadeIn(mainTitle2, 100);
-if (mainTitle3 !== null) initFadeIn(mainTitle3, 100);
-if (mainTitle4 !== null) initFadeIn(mainTitle4, 100);
-if (downArrow !== null) initFadeIn(downArrow, 4000);
-if (content[0] !== null) initFadeIn(content[0], 300);
-if (content[1] !== null) initFadeIn(content[1], 300);
+if (exists(mainTitle)) initFadeIn(mainTitle, 100);
+if (exists(mainTitle2)) initFadeIn(mainTitle2, 100);
+if (exists(mainTitle3)) initFadeIn(mainTitle3, 100);
+if (exists(mainTitle4)) initFadeIn(mainTitle4, 100);
+if (exists(downArrow)) initFadeIn(downArrow, 4000);
+if (exists(content[0])) initFadeIn(content[0], 300);
+if (exists(content[1])) initFadeIn(content[1], 300);
 
 function initFadeIn(element, delay) {
   setTimeout(() => {
@@ -216,6 +220,9 @@ const embedWrappers = document.querySelectorAll(".embed-wrapper");
 if (embedWrappers !== null) {
   embedWrappers.forEach((item) => {
     item.firstElementChild.addEventListener("click", () => {
+      const imgHeight = item.firstElementChild.clientHeight;
+      const imgWidth = item.firstElementChild.clientWidth;
+      console.log(imgHeight);
       let videoID = item.firstElementChild.name;
       item.firstElementChild.remove();
 
@@ -225,6 +232,8 @@ if (embedWrappers !== null) {
       ytEmbed.allow =
         "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
       ytEmbed.allowFullscreen = true;
+      ytEmbed.style.height = `${imgHeight}px`;
+      ytEmbed.style.width = `${imgWidth}px`;
       item.appendChild(ytEmbed);
     });
   });
@@ -234,42 +243,44 @@ if (embedWrappers !== null) {
 
 const emailForm = document.querySelector("form");
 
-emailForm.addEventListener("submit", (event) => {
-  //event.preventDefault();
-  let email,
-    name,
-    subject,
-    msg = "";
+if (emailForm !== null) {
+  emailForm.addEventListener("submit", (event) => {
+    //event.preventDefault();
+    let email,
+      name,
+      subject,
+      msg = "";
 
-  Array.from(emailForm.children).forEach((item) => {
-    email = item.name === "email" ? item.value : email;
-    name = item.name === "name" ? item.value : name;
-    subject = item.name === "subject" ? item.value : subject;
-    msg = item.name === "msg" ? item.value : msg;
+    Array.from(emailForm.children).forEach((item) => {
+      email = item.name === "email" ? item.value : email;
+      name = item.name === "name" ? item.value : name;
+      subject = item.name === "subject" ? item.value : subject;
+      msg = item.name === "msg" ? item.value : msg;
+    });
+
+    const emailData = {
+      service_id: "service_sfe5oaf",
+      template_id: "template_nxr0z9i",
+      user_id: "user_KdipX7dbjtw6CapdNEytZ",
+      accessToken: "92f38ba9726790d7869573a563753ef1",
+      template_params: {
+        reply_to: email,
+        from_name: name,
+        subject: subject,
+        message: msg,
+      },
+    };
+    console.log(emailData);
+
+    // fetch("https://api.emailjs.com/api/v1.0/email/send", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(emailData),
+    // })
+    //   .then((response) => {
+    //     console.log(JSON.stringify(emailData));
+    //     return response.text();
+    //   })
+    //   .then((response) => console.log(response));
   });
-
-  const emailData = {
-    service_id: "service_sfe5oaf",
-    template_id: "template_nxr0z9i",
-    user_id: "user_KdipX7dbjtw6CapdNEytZ",
-    accessToken: "92f38ba9726790d7869573a563753ef1",
-    template_params: {
-      reply_to: email,
-      from_name: name,
-      subject: subject,
-      message: msg,
-    },
-  };
-  console.log(emailData);
-
-  // fetch("https://api.emailjs.com/api/v1.0/email/send", {
-  //   method: "POST",
-  //   headers: { "Content-Type": "application/json" },
-  //   body: JSON.stringify(emailData),
-  // })
-  //   .then((response) => {
-  //     console.log(JSON.stringify(emailData));
-  //     return response.text();
-  //   })
-  //   .then((response) => console.log(response));
-});
+}
